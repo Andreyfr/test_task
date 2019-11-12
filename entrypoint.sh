@@ -33,14 +33,12 @@ fi
 
 # enable zabbix server monitoring
 mysql -D zabbix -e 'UPDATE hosts SET status=0 WHERE status=1;'
-
 # autoload any modules loaded into /usr/lib/zabbix/modules/
 echo "==> Configuring Zabbix agent modules..."
 shopt -s nullglob
 for module in /usr/lib/zabbix/modules/*.so; do
 	echo "LoadModule=${module##*/}" >> /etc/zabbix/zabbix_agentd.conf
 done
-
 # start zabbix service
 echo "==> Starting Services..."
 /etc/init.d/zabbix-server start
