@@ -27,6 +27,7 @@ RUN sed -i \
 
 # configure zabbix web server
 COPY zabbix.conf.php /etc/zabbix/web/zabbix.conf.php
+COPY zabbix-apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 80 10050
