@@ -10,6 +10,7 @@ before_install:
 #  - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
   - echo "Docker Hub credentials are working"
   - docker build -t test_task .
+  - docker run -it test_task test_task
 
 script:
   - docker ps -a
